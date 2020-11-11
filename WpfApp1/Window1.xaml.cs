@@ -67,7 +67,7 @@ namespace WpfApp1
 
                 for (int i = 0; i < cur_group_dates.Count(); i++)
                 {
-                    if (cur_group_students[j].marks.ContainsKey(cur_group_dates[i])) 
+                    if (cur_group_students[j].marks.ContainsKey(cur_group_dates[i]))
                     {
                         TextBlock current_mark = new TextBlock();
                         current_mark.Text = cur_group_students[j].marks[cur_group_dates[i]].ToString();
@@ -76,6 +76,16 @@ namespace WpfApp1
                         current_mark.TextAlignment = TextAlignment.Center;
 
                         cur_stack_panel.Children.Add(current_mark);
+                    }
+                    else 
+                    {
+                        TextBlock current_mark_span = new TextBlock();
+                        current_mark_span.Text = "";
+                        //current_date.Margin = new Thickness(10, 5, 10, 5);
+                        current_mark_span.Width = 70;
+                        current_mark_span.TextAlignment = TextAlignment.Center;
+
+                        cur_stack_panel.Children.Add(current_mark_span);
                     }
                 }
 

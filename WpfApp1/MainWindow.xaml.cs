@@ -31,10 +31,10 @@ namespace WpfApp1
             Student s1 = new Student("Иван", "Иванов", "Иванович", new Dictionary<long, int>() { { 10000000000000, 3 }, { 20000000000000, 5 } });
             Student s2 = new Student("А", "Б", "В", new Dictionary<long, int>() { { 20000000000000, 4 } });
 
-            Student s3 = new Student("Васян", "Васенов", "Васенович", new Dictionary<long, int>() { { 10000000000000, 4 }, { 20000000000000, 3 } });
-            Student s4 = new Student("Г", "Д", "Е", new Dictionary<long, int>() { { 20000000000000, 3 } });
+            Student s3 = new Student("Васян", "Васенов", "Васенович", new Dictionary<long, int>() { { 50000000000000, 4 }, { 60000000000000, 3 } });
+            Student s4 = new Student("Г", "Д", "Е", new Dictionary<long, int>() { { 60000000000000, 3 } });
 
-            Group g1 = new Group("ИНБО-00-20", new List<long>() { 40000000000000, 50000000000000, 60000000000000 }, new List<Student>() { s1, s2 });
+            Group g1 = new Group("ИНБО-00-20", new List<long>() { 10000000000000, 20000000000000, 30000000000000 }, new List<Student>() { s1, s2 });
             Group g2 = new Group("ИНБО-000-20", new List<long>() { 30000000000000, 40000000000000, 50000000000000, 60000000000000 }, new List<Student>() { s3, s4 });
 
             Window2 w2 = new Window2(new List<Group> { g1, g2 });
