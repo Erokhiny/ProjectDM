@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace WpfApp1
 {
-    public class Group
+    public class Group_f
     {
         public string title;
         public List<long> dates;
-        public List<Student> students;
+        public List<Student_f> students;
 
-        public Group(string new_title, List<long> new_dates, List<Student> new_students) 
+        public Group_f(string new_title, List<long> new_dates, List<Student_f> new_students)
         {
             this.title = new_title;
             this.dates = new_dates;

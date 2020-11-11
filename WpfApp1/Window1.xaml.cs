@@ -19,13 +19,13 @@ namespace WpfApp1
     /// </summary>
     public partial class Window1 : Window
     {
-        public Window1(Group cur_group)
+        public Window1(Group_f cur_group)
         {
             InitializeComponent();
 
             string cur_group_title = cur_group.title;
             List<long> cur_group_dates = cur_group.dates;
-            List<Student> cur_group_students = cur_group.students;
+            List<Student_f> cur_group_students = cur_group.students;
 
             this.group_title.Text = cur_group_title;
 

@@ -44,3 +44,7 @@ C:\Users\egork\Desktop\Обучение\Институт\Процедурное 
 C:\Users\egork\Desktop\Обучение\Институт\Процедурное программирование\ProjectDM\ProjectDM\WpfApp1\obj\Debug\Window2.g.cs
 C:\Users\egork\Desktop\Обучение\Институт\Процедурное программирование\ProjectDM\ProjectDM\WpfApp1\obj\Debug\Window2.baml
 >>>>>>> vegetablya
+C:\ProjectDM\ProjectDM\WpfApp1\obj\Debug\Window1.g.cs
+C:\ProjectDM\ProjectDM\WpfApp1\obj\Debug\Window2.g.cs
+C:\ProjectDM\ProjectDM\WpfApp1\obj\Debug\Window1.baml
+C:\ProjectDM\ProjectDM\WpfApp1\obj\Debug\Window2.baml

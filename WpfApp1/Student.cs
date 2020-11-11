@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp1
 {
-    public class Student
+    public class Student_f
     {
         // ФИО
         public string firstName;
@@ -16,7 +16,7 @@ namespace WpfApp1
         // массив оценок
         public Dictionary<long, int> marks;
 
-        public Student(string fn, string sn, string ln, Dictionary<long, int> new_marks) 
+        public Student_f(string fn, string sn, string ln, Dictionary<long, int> new_marks) 
         {
             this.firstName = fn;
             this.secondName = sn;

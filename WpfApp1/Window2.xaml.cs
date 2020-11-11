@@ -19,9 +19,9 @@ namespace WpfApp1
     /// </summary>
     public partial class Window2 : Window
     {
-        public List<Group> groups;
+        public List<Group_f> groups;
 
-        public Window2(List<Group> cur_groups)
+        public Window2(List<Group_f> cur_groups)
         {
             InitializeComponent();
 
