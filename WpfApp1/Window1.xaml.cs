@@ -80,7 +80,7 @@ namespace WpfApp1
                     else 
                     {
                         TextBlock current_mark_span = new TextBlock();
-                        current_mark_span.Text = "";
+                        current_mark_span.Text = "н";
                         //current_date.Margin = new Thickness(10, 5, 10, 5);
                         current_mark_span.Width = 70;
                         current_mark_span.TextAlignment = TextAlignment.Center;

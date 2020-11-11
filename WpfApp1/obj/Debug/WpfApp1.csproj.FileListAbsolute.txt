@@ -48,3 +48,12 @@ C:\ProjectDM\ProjectDM\WpfApp1\obj\Debug\Window1.g.cs
 C:\ProjectDM\ProjectDM\WpfApp1\obj\Debug\Window2.g.cs
 C:\ProjectDM\ProjectDM\WpfApp1\obj\Debug\Window1.baml
 C:\ProjectDM\ProjectDM\WpfApp1\obj\Debug\Window2.baml
+C:\Users\egork\Desktop\Обучение\Институт\Процедурное программирование\ProjectDM\ProjectDM\WpfApp1\bin\Debug\EntityFramework.dll
+C:\Users\egork\Desktop\Обучение\Институт\Процедурное программирование\ProjectDM\ProjectDM\WpfApp1\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\egork\Desktop\Обучение\Институт\Процедурное программирование\ProjectDM\ProjectDM\WpfApp1\bin\Debug\System.Data.SQLite.dll
+C:\Users\egork\Desktop\Обучение\Институт\Процедурное программирование\ProjectDM\ProjectDM\WpfApp1\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\egork\Desktop\Обучение\Институт\Процедурное программирование\ProjectDM\ProjectDM\WpfApp1\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\egork\Desktop\Обучение\Институт\Процедурное программирование\ProjectDM\ProjectDM\WpfApp1\bin\Debug\EntityFramework.xml
+C:\Users\egork\Desktop\Обучение\Институт\Процедурное программирование\ProjectDM\ProjectDM\WpfApp1\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\egork\Desktop\Обучение\Институт\Процедурное программирование\ProjectDM\ProjectDM\WpfApp1\bin\Debug\System.Data.SQLite.xml
+C:\Users\egork\Desktop\Обучение\Институт\Процедурное программирование\ProjectDM\ProjectDM\WpfApp1\obj\Debug\WpfApp1.csproj.CopyComplete

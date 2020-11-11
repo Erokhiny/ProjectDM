@@ -23,5 +23,21 @@ namespace WpfApp1
             this.lastName = ln;
             this.marks = new_marks;
         }
+
+        public Student_f(Student cur_student)
+        {
+            this.firstName = cur_student.Firstname;
+            this.secondName = cur_student.Secondname;
+            this.lastName = cur_student.Patronymic;
+
+            this.marks = new Dictionary<long, int>();
+            foreach (var i in MainWindow.db.Marks)
+            {
+                if (i.Student_id == cur_student.Id)
+                {
+                    this.marks.Add((long)i.Date, i.Number);
+                }
+            }
+        }
     }
 }

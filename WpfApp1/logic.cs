@@ -10,6 +10,7 @@ using System.Data.SQLite;
 using System.IO;
 using System.Drawing;
 using System.Diagnostics;
+using System.Data;
 
 namespace WpfApp1
 {
@@ -21,10 +22,10 @@ namespace WpfApp1
 
         public string Name
         {
-            get { return Name; }
+            get { return name; }
             set
             {
-                Name = value;
+                name = value;
                 OnPropertyChanged("Name");
             }
         }
@@ -100,7 +101,7 @@ namespace WpfApp1
         private int date;
         private DateTime date_in_str = new DateTime();
         private int student_id;
-        private static DateTime zero = new DateTime();
+        //private static DateTime zero = new DateTime();
 
         public int Id { get; set; }
 
@@ -114,14 +115,15 @@ namespace WpfApp1
             }
         }
 
-        public DateTime Date
+        public int Date
         {
-            get { return date_in_str; }
+            get { return date; }
             set
             {
-                date_in_str = value;
-                TimeSpan interval = date_in_str - zero;
-                date = Convert.ToInt32(interval.TotalSeconds);
+                date = value;
+                //TimeSpan interval = date_in_str - DateTime.MinValue;
+                //date = long.Parse(interval.TotalSeconds.ToString());
+                //date = Convert.ToInt64(interval.TotalSeconds);
                 OnPropertyChanged("Date");
             }
         }
@@ -138,8 +140,8 @@ namespace WpfApp1
         
         public void date_reload()
         {
-            TimeSpan interval = new TimeSpan(0, 0, date);
-            date_in_str = zero + interval;
+            TimeSpan interval = new TimeSpan(0, 0, (int)date);
+            date_in_str = DateTime.MinValue + interval;
         }
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
@@ -180,8 +182,20 @@ namespace WpfApp1
             Command.ExecuteNonQuery();
             Connect.Close();
         }
-        public static void get_students_by_group(int id)
+        
+        public static List<Student> get_students_by_group(int id)
         {
+            List<Student> p = MainWindow.db.Students.ToList<Student>();
+            List<Student> SelectedStudents = new List<Student>(from i in p where i.Group_id == id select i);
+            return SelectedStudents;
+            //сортировочка я устал
+        }
+
+        public static List<Mark> get_marks_by_student(int id)
+        {
+            List<Mark> p = MainWindow.db.Marks.ToList<Mark>();
+            List<Mark> SelectedMarks = new List<Mark>(from i in p where i.Student_id == id select i);
+            return SelectedMarks;
             //сортировочка я устал
         }
     }
