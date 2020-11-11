@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.Entity;
 
 namespace WpfApp1
 {
@@ -20,9 +21,18 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static ApplicationContext db;
         public MainWindow()
         {
             InitializeComponent();
+            logic.create_journal();
+            db = new ApplicationContext();
+            db.Groups.Load();/*
+            this.DataContext = db.Groups.Local.ToBindingList();*/
+            db.Students.Load();/*
+            this.DataContext = db.Students.Local.ToBindingList();*/
+            db.Marks.Load();/*
+            this.DataContext = db.Marks.Local.ToBindingList();*/
         }
     }
 }
