@@ -16,19 +16,23 @@ namespace WpfApp1
 {
     public class Group : INotifyPropertyChanged
     {
-        private string name;
+        private string _name;
 
-        public int Id { get; set; }
+        public int id { get; set; }
 
-        public string Name
+        public string name
         {
-            get { return name; }
+            get { return _name; }
             set
             {
-                name = value;
+                _name = value;
                 OnPropertyChanged("Name");
             }
         }
+
+        public List<Student> students { get; set; }
+
+        public List<Date> dates { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
@@ -40,52 +44,45 @@ namespace WpfApp1
 
     public class Student : INotifyPropertyChanged
     {
-        private string firstname;
-        private string secondname;
-        private string patronymic;
-        private int group_id;
+        private string _firstname;
+        private string _secondname;
+        private string _patronymic;
 
-        public int Id { get; set; }
+        public int id { get; set; }
 
-        public string Firstname
+        public string firstname
         {
-            get { return firstname; }
+            get { return _firstname; }
             set
             {
-                firstname = value;
+                _firstname = value;
                 OnPropertyChanged("Firstname");
             }
         }
 
-        public string Secondname
+        public string secondname
         {
-            get { return secondname; }
+            get { return _secondname; }
             set
             {
-                secondname = value;
+                _secondname = value;
                 OnPropertyChanged("Secondname");
             }
         }
 
-        public string Patronymic
+        public string patronymic
         {
-            get { return patronymic; }
+            get { return _patronymic; }
             set
             {
-                patronymic = value;
+                _patronymic = value;
                 OnPropertyChanged("Patronymic");
             }
         }
 
-        public int Group_id
-        {
-            get { return group_id; }
-            set
-            {
-                group_id = value;
-                OnPropertyChanged("Group_id");
-            }
-        }
+        public Group group { get; set; }
+
+        public List<Mark> marks { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
@@ -97,52 +94,52 @@ namespace WpfApp1
 
     public class Mark : INotifyPropertyChanged
     {
-        private int number;
-        private int date;
-        private DateTime date_in_str = new DateTime();
-        private int student_id;
-        //private static DateTime zero = new DateTime();
+        private int _number;
 
-        public int Id { get; set; }
+        public int id { get; set; }
 
-        public int Number
+        public int number
         {
-            get { return number; }
+            get { return _number; }
             set
             {
-                number = value;
+                _number = value;
                 OnPropertyChanged("Number");
             }
         }
+*/
+        public Student student { get; set; }
 
-        public int Date
+        public Date date { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string prop = "")
         {
-            get { return date; }
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
+    }
+
+    public class Date : INotifyPropertyChanged
+    {
+        private int _date;
+
+        public int Id { get; set; }
+
+        public int date
+        {
+            get { return _date; }
             set
             {
-                date = value;
-                //TimeSpan interval = date_in_str - DateTime.MinValue;
-                //date = long.Parse(interval.TotalSeconds.ToString());
-                //date = Convert.ToInt64(interval.TotalSeconds);
+                _date = value;
                 OnPropertyChanged("Date");
             }
         }
 
-        public int Student_id
-        {
-            get { return student_id; }
-            set
-            {
-                student_id = value;
-                OnPropertyChanged("Student_id");
-            }
-        }
-        
-        public void date_reload()
-        {
-            TimeSpan interval = new TimeSpan(0, 0, (int)date);
-            date_in_str = DateTime.MinValue + interval;
-        }
+        public Group group { get; set; }
+
+        public List<Mark> marks { get; set; }
+
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {
@@ -158,6 +155,7 @@ namespace WpfApp1
         }
         public DbSet<Group> Groups { get; set; }
         public DbSet<Student> Students { get; set; }
+        public DbSet<Date> Dates { get; set; }
         public DbSet<Mark> Marks { get; set; }
     }
     public static class logic
@@ -176,27 +174,16 @@ namespace WpfApp1
             Connect.Open();
             Command.ExecuteNonQuery();
             Connect.Close();
-            commandText = "CREATE TABLE IF NOT EXISTS [Marks] ( [Id] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, [Number]	INTEGER, [Date]  INTEGER, [Student_id]    INTEGER, FOREIGN KEY([Student_id]) REFERENCES [Student]([Id]))";
+            commandText = "CREATE TABLE IF NOT EXISTS [Dates] ( [Id] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, [Date]	INTEGER, [Group_id]    INTEGER, FOREIGN KEY([Group_id]) REFERENCES [Groups]([Id]))";
             Command = new SQLiteCommand(commandText, Connect);
             Connect.Open();
             Command.ExecuteNonQuery();
             Connect.Close();
-        }
-        
-        public static List<Student> get_students_by_group(int id)
-        {
-            List<Student> p = MainWindow.db.Students.ToList<Student>();
-            List<Student> SelectedStudents = new List<Student>(from i in p where i.Group_id == id select i);
-            return SelectedStudents;
-            //сортировочка я устал
-        }
-
-        public static List<Mark> get_marks_by_student(int id)
-        {
-            List<Mark> p = MainWindow.db.Marks.ToList<Mark>();
-            List<Mark> SelectedMarks = new List<Mark>(from i in p where i.Student_id == id select i);
-            return SelectedMarks;
-            //сортировочка я устал
+            commandText = "CREATE TABLE IF NOT EXISTS [Marks] ( [Id] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, [Number]	INTEGER, [Student_id]    INTEGER, [Date_id]    INTEGER, FOREIGN KEY([Date_id]) REFERENCES [Dates]([Id]), FOREIGN KEY([Student_id]) REFERENCES [Students]([Id]))";
+            Command = new SQLiteCommand(commandText, Connect);
+            Connect.Open();
+            Command.ExecuteNonQuery();
+            Connect.Close();
         }
     }
 }

@@ -25,15 +25,13 @@ namespace WpfApp1
         public static ApplicationContext db;
         public MainWindow()
         {
-            InitializeComponent();/*
-            logic.create_journal();*/
+            InitializeComponent();
+            //logic.create_journal();
             db = new ApplicationContext();
-            db.Groups.Load();/*
-            this.DataContext = db.Groups.Local.ToBindingList();*/
-            db.Students.Load();/*
-            this.DataContext = db.Students.Local.ToBindingList();*/
-            db.Marks.Load();/*
-            this.DataContext = db.Marks.Local.ToBindingList();*/
+            db.Groups.Load();
+            db.Students.Load();
+            db.Dates.Load();
+            db.Marks.Load();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
